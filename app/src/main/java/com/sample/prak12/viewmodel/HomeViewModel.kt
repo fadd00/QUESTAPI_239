@@ -1,5 +1,15 @@
 package com.sample.prak12.viewmodel
 
+import android.net.http.HttpException
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.sample.prak12.modeldata.DataSiswa
+import com.sample.prak12.repositori.RepositoryDataSiswa
+import kotlinx.coroutines.launch
+import java.io.IOException
+
 sealed interface StatusUiSiswa {
     data class Success(val siswa: List<DataSiswa> = listOf()) : StatusUiSiswa
     object Error: StatusUiSiswa
