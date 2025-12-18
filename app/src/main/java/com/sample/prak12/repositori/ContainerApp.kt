@@ -9,3 +9,6 @@ class DefaultAppContainer : ContainerApi {
     val logging = HttpLoggingInterceptor().apply{
         level = HttpLoggingInterceptor.Level.BODY
 }
+    val klien = OkHttpClient.Builder()
+        .addInterceptor(logging)
+        .build()
