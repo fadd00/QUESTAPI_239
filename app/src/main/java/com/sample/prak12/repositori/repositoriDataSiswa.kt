@@ -1,7 +1,6 @@
 package com.sample.prak12.repositori
 
 import com.sample.prak12.apiservice.ServiceApiSiswa
-import com.sample.prak12.database.DatabaseHelper
 import com.sample.prak12.modeldata.DataSiswa
 
 interface RepositoryDataSiswa {
