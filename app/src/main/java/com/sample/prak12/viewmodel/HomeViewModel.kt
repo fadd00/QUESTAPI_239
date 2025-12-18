@@ -28,12 +28,19 @@ class HomeViewModel (private val repositoryDataSiswa: RepositoryDataSiswa):
         viewModelScope.launch {
             listSiswa = StatusUiSiswa.Loading
             listSiswa = try {
-                StatusUiSiswa.Success(repositoryDataSiswa.getDataSiswa())
+                println("Memulai request getData...")
+                val data = repositoryDataSiswa.getDataSiswa()
+                println("Berhasil mendapatkan data: ${data.size} siswa")
+                StatusUiSiswa.Success(data)
             }
             catch (e: IOException) {
+                println("IOException saat load siswa: ${e.message}")
+                e.printStackTrace()
                 StatusUiSiswa.Error
             }
             catch (e: Exception) {
+                println("Exception saat load siswa: ${e.message}")
+                e.printStackTrace()
                 StatusUiSiswa.Error
             }
         }

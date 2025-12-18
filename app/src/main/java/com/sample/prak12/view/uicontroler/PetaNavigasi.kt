@@ -21,9 +21,11 @@ fun DataSiswaApp(navController: NavHostController = rememberNavController(),
 @Composable
 fun HostNavigasi(navController: NavHostController,
                  modifier: Modifier = Modifier) {
-    NavHost(navController = navController,
+    NavHost(
+        navController = navController,
         startDestination = DestinasiHome.route,
-        modifier = Modifier) {
+        modifier = modifier
+    ) {
         composable(DestinasiHome.route) {
             HomeScreen(navigateToItemEntry = {
                 navController.navigate(DestinasiEntry.route) },

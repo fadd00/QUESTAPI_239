@@ -14,7 +14,9 @@ interface ContainerApp {
 }
 
 class DefaultContainerApp : ContainerApp {
-    private val baseurl = "http://10.0.2.2/PAM_act8_backendAPI/"
+    // Untuk emulator Android, gunakan 10.0.2.2 untuk akses localhost komputer host
+    // Untuk device fisik, ganti dengan IP address laptop (misal: 192.168.1.100)
+    private val baseurl = "http://192.168.1.38:8080/umyTI/"
 
     val logging = HttpLoggingInterceptor().apply{
         level = HttpLoggingInterceptor.Level.BODY

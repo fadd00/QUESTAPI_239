@@ -108,7 +108,7 @@ fun HomeStatus(
                 SiswaLayout(
                     siswa = statusUiSiswa.siswa,
                     modifier = modifier.fillMaxWidth(),
-                    onDetailClick = { onDetailClick(it.id) }
+                    onDetailClick = { it.id?.let { id -> onDetailClick(id) } }
                 )
             }
         }
