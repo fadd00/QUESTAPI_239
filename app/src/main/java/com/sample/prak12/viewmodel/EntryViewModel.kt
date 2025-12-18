@@ -1,11 +1,13 @@
 package com.sample.prak12.viewmodel
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.sample.prak12.modeldata.DetailSiswa
 import com.sample.prak12.modeldata.UIStateSiswa
+import com.sample.prak12.modeldata.toDataSiswa
 import com.sample.prak12.repositori.RepositoryDataSiswa
-import okhttp3.Response
 
 class EntryViewModel (private val repositoryDataSiswa: RepositoryDataSiswa):
     ViewModel() {
@@ -25,7 +27,7 @@ class EntryViewModel (private val repositoryDataSiswa: RepositoryDataSiswa):
     }
     suspend fun addSiswa() {
         if (validasiInput()) {
-            val sip: Response<Void> = repositoryDataSiswa.postDataSiswa(uiStateSiswa.detailSiswa.toDataSiswa())
+            val sip = repositoryDataSiswa.postDataSiswa(uiStateSiswa.detailSiswa.toDataSiswa())
             if (sip.isSuccessful) {
                 println("Sukses Tambah Data: ${sip.message()}")
             }else{

@@ -26,6 +26,7 @@ class DefaultContainerApp : ContainerApp {
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(baseurl)
+        .client(klien)
         .addConverterFactory(
             Json {
                 ignoreUnknownKeys = true

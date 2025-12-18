@@ -3,15 +3,19 @@ package com.sample.prak12.view.uicontroler
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sample.prak12.view.route.DestinasiEntry
 import com.sample.prak12.view.route.DestinasiHome
+import com.sample.prak12.view.route.EntrySiswaScreen
+import com.sample.prak12.view.route.HomeScreen
 
 @Composable
 fun DataSiswaApp(navController: NavHostController = rememberNavController(),
-                 modifier: Modifier
+                 modifier: Modifier = Modifier
 ) {
-    HostNavigasi(navController = navController)
+    HostNavigasi(navController = navController, modifier = modifier)
 }
 
 @Composable
@@ -28,7 +32,9 @@ fun HostNavigasi(navController: NavHostController,
                 })
         }
         composable(DestinasiEntry.route) {
-//            EntrySiswaScreen(navigateBack = { navController.navigate(DestinasiHome.route)})
+            EntrySiswaScreen(navigateBack = { navController.navigate(DestinasiHome.route) {
+                popUpTo(DestinasiHome.route) { inclusive = true }
+            }})
         }
     }
 }
