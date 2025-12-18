@@ -48,7 +48,7 @@ import com.sample.prak12.viewmodel.provider.PenyediaViewModel
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     modifier: Modifier = Modifier,
-    navigateToItemUpdate: (Int) -> Unit = {},
+    navigateToItemUpdate: (String) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -89,7 +89,7 @@ fun HomeStatus(
     statusUiSiswa: StatusUiSiswa,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (Int) -> Unit
+    onDetailClick: (String) -> Unit
 ) {
     when (statusUiSiswa) {
         is StatusUiSiswa.Loading -> OnLoading(modifier = modifier.fillMaxSize())
