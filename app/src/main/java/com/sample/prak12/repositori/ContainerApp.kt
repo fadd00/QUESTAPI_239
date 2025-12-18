@@ -4,5 +4,8 @@ interface ContainerApi{
     val repositoriDataSiswa : repositoriDataSiswa
 }
 class DefaultAppContainer : ContainerApi {
-    private val baseUrl =
+    private val baseUrl = ""
+
+    val logging = HttpLoggingInterceptor().apply{
+        level = HttpLoggingInterceptor.Level.BODY
 }
